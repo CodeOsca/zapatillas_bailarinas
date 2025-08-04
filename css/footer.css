@@ -1,0 +1,24 @@
+:root{
+    --e-global-color-d80d632: #E685B5;
+    --e-global-color-c6b704d: #C60570;
+}
+
+.footer-art{
+    height: 300px;
+    background-color: #fff0;
+    background-image: linear-gradient(180deg, var(--e-global-color-c6b704d) 0%, var(--e-global-color-d80d632) 100%);
+}
+
+.wade2{
+    display: block;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: calc(100% + 1.3px);
+}
+
+.elementor-shape-fill{
+    fill: #fff;
+    transform: rotateY(0deg);
+    transform-origin: center;
+}
