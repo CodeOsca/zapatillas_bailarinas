@@ -3,6 +3,10 @@
     --e-global-color-c6b704d: #C60570;
 }
 
+.bg-rose-strong {
+    background-color: var(--e-global-color-c6b704d); /* rosa fuerte */
+  }
+
 .footer-art{
     height: 300px;
     background-color: #fff0;
