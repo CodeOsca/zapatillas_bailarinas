@@ -179,3 +179,34 @@
   `
     document.querySelector('.container-footer').innerHTML = templateFooter
 })()
+
+
+if (document.querySelector('.swiper-container')) {
+    var swiper = new Swiper(".swiper-container", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }
+  });
+
+  const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          swiper.autoplay.start();
+        } else {
+          swiper.autoplay.stop();
+        }
+      }, { threshold: 0.1 });
+      observer.observe(document.querySelector('.swiper-container'));
+}

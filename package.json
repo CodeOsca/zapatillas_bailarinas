@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "swiper": "^11.2.10"
+  }
 }
