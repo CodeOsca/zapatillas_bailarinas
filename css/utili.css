@@ -11,6 +11,14 @@ body {
   overflow-x: hidden;
 }
 
+.text-sh-blue-200{
+  text-shadow: 8px 13px 11px #86AECE;
+}
+
+.text-sh-marron-400{
+  text-shadow: 8px 13px 11px #CE5937;
+}
+
 .banner-img {
   min-height: 80vh;
   background-image: url(../img/banner.jpg);
@@ -19,7 +27,7 @@ body {
 }
 
 .element-degrad-overlay {
-  height: inherit;
+  height: 80vh;
   background-color: transparent;
   background-image: linear-gradient(180deg, #ff7e27 0%, #58167d 100%);
   opacity: 0.7;
@@ -106,7 +114,10 @@ body {
       max-width: 300px;
       max-height: 300px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+
+      box-shadow: 21px 14px 400px 200px rgba(128,48,48,0.91);
+      -webkit-box-shadow: 21px 14px 400px 200px rgba(128,48,48,0.91);
+      -moz-box-shadow: 21px 14px 400px 200px rgba(128,48,48,0.91);
     }
 
     .swiper-button-next,
