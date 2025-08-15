@@ -203,7 +203,7 @@ if (document.querySelector('.swiper-container')) {
 
   const observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
-          /* swiper.autoplay.start(); */
+          swiper.autoplay.start();
         } else {
           swiper.autoplay.stop();
         }
