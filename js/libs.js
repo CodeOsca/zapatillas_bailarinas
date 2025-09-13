@@ -17,17 +17,17 @@
         <li class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="./index.html">Inicio</a>
         </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white" href="./cursos.html">Cursos </a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link text-white" href="./eventos.html">Eventos</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="./horarios.html">Horario</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link text-white" href="./cursos.html">Cursos </a>
+          <a class="nav-link text-white" href="./sobrenosotros.html">Sobre Nosotros</a>
         </li>
 
       </ul>
@@ -209,4 +209,31 @@ if (document.querySelector('.swiper-container')) {
         }
       }, { threshold: 0.1 });
       observer.observe(document.querySelector('.swiper-container'));
+}
+
+
+const imgBackObserve = document.querySelectorAll('.back_ho');
+
+const opciones = {
+  threshold: 0.4 // Se activa cuando el 50% del elemento es visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1
+    } else {
+      entry.target.style.opacity = 0
+    }
+  });
+}, opciones);
+
+window.addEventListener('resize', function () {
+  if (window.innerWidth < 769) {
+    imgBackObserve.forEach(el => observer.observe(el));
+  }
+})
+
+if (window.innerWidth < 769) {
+    imgBackObserve.forEach(el => observer.observe(el));
 }

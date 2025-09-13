@@ -114,6 +114,24 @@ body {
       color: #fff;
     }
 
+    
+    
+    .card {
+      position: relative;
+    }
+
+    .back_ho{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity .5s linear;
+    }
+
+    .card:hover > .back_ho{
+      opacity: 1;
+    }
+
     @media (max-width: 480px) {
       .swiper-slide {
         width: 90vw;
