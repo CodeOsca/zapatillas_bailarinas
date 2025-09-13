@@ -13,9 +13,9 @@ body {
 
 .banner-img {
   min-height: 80vh;
-  background-image: url(../img/banner.jpg);
+  background-image: url(../img/zapatillas5.png);
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
 }
 
 .element-degrad-overlay {
