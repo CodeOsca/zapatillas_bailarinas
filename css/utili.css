@@ -132,6 +132,7 @@ body {
       opacity: 1;
     }
 
+
     @media (max-width: 480px) {
       .swiper-slide {
         width: 90vw;
