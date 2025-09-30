@@ -36,10 +36,8 @@
   </div>
 </nav>`;
 
-    document.querySelector('.container-menu').innerHTML = templateMenu
+  document.querySelector(".container-menu").innerHTML = templateMenu;
 })();
-
-
 
 (function () {
   let templateFooter = `
@@ -89,7 +87,7 @@
           </li>
 
           <li class="me-3">
-            <a href="https://www.instagram.com/zbailarinas/" target="_blank">
+            <a href="https://wa.me/584126585591" target="_blank">
               <svg
                 width="30px"
                 height="30px"
@@ -124,7 +122,7 @@
           </li>
 
           <li class="me-3">
-            <a href="" target="_blank">
+            <a href="mailto:zbailarinas@gmail.com" target="_blank">
               <svg
                 height="30px"
                 width="30px"
@@ -176,64 +174,141 @@
         </p>
       </article>
     </footer>
-  `
-    document.querySelector('.container-footer').innerHTML = templateFooter
-})()
+  `;
+  document.querySelector(".container-footer").innerHTML = templateFooter;
+})();
 
-
-if (document.querySelector('.swiper-container')) {
-    var swiper = new Swiper(".swiper-container", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        loop: true,
-        coverflowEffect: {
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }
+if (document.querySelector(".swiper-container")) {
+  var swiper = new Swiper(".swiper-container", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
 
-  const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          swiper.autoplay.start();
-        } else {
-          swiper.autoplay.stop();
-        }
-      }, { threshold: 0.1 });
-      observer.observe(document.querySelector('.swiper-container'));
+  document.querySelectorAll(".swiper-slide").forEach((slide) => {
+    slide.addEventListener("click", () => {
+      const bg = slide.style.backgroundImage;
+      const overlay = document.createElement("div");
+      overlay.classList.add("fullscreen-overlay");
+      overlay.style.backgroundImage = bg;
+      document.body.appendChild(overlay);
+
+      // Forzar reflow para activar transición
+      requestAnimationFrame(() => {
+        overlay.classList.add("show");
+        swiper.autoplay.stop();
+      });
+
+      // Cerrar al hacer clic en el overlay
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("show");
+        swiper.autoplay.start();
+        setTimeout(() => overlay.remove(), 500);
+      });
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        swiper.autoplay.start();
+      } else {
+        swiper.autoplay.stop();
+      }
+    },
+    { threshold: 0.1 }
+  );
+  observer.observe(document.querySelector(".swiper-container"));
 }
 
-
-const imgBackObserve = document.querySelectorAll('.back_ho');
+const imgBackObserve = document.querySelectorAll(".back_ho");
 
 const opciones = {
-  threshold: 0.4 // Se activa cuando el 50% del elemento es visible
+  threshold: 0.4, // Se activa cuando el 50% del elemento es visible
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = 1
+      entry.target.style.opacity = 1;
     } else {
-      entry.target.style.opacity = 0
+      entry.target.style.opacity = 0;
     }
   });
 }, opciones);
 
-window.addEventListener('resize', function () {
+window.addEventListener("resize", function () {
   if (window.innerWidth < 769) {
-    imgBackObserve.forEach(el => observer.observe(el));
+    imgBackObserve.forEach((el) => observer.observe(el));
   }
-})
+});
 
 if (window.innerWidth < 769) {
-    imgBackObserve.forEach(el => observer.observe(el));
+  imgBackObserve.forEach((el) => observer.observe(el));
 }
+
+document.addEventListener("click", function (e) {
+  if (
+    e.target.matches("[data-video]") &&
+    !document.querySelector(`video[src]`)
+  ) {
+    const overlay = document.createElement("video");
+    const close = document.createElement("span");
+    const container = document.createElement("div");
+    container.appendChild(close);
+    container.appendChild(overlay);
+    close.textContent = "X";
+    close.setAttribute("id", "close-video");
+    close.style.position = "absolute";
+    close.style.top = "0";
+    close.style.right = "10px";
+    close.style.fontSize = "30px";
+    close.style.cursor = "pointer";
+    close.style.color = "white";
+    close.style.zIndex = 6;
+    container.style.width = "350px";
+    overlay.style.width = "100%";
+    container.style.position = "fixed";
+    container.style.top = "120px";
+    container.style.right = "20px";
+    container.style.zIndex = 5;
+    overlay.setAttribute("controls", "");
+    overlay.setAttribute("muted", "");
+    overlay.setAttribute("id", "video-dance");
+    overlay.src = e.target.dataset.video;
+    e.target.parentElement.appendChild(container);
+
+    overlay.addEventListener("mouseenter", () => {
+      overlay.play();
+    });
+
+    overlay.addEventListener("mouseleave", () => {
+      overlay.pause();
+      overlay.currentTime = 0;
+    });
+  }
+
+  if (e.target.matches("#close-video")) {
+    e.target.nextElementSibling.pause();
+    e.target.parentElement.remove();
+  }
+});
+
+document
+  .getElementById("video-dance")
+  ?.addEventListener("mouseleave", function () {
+    console.log(3);
+  });

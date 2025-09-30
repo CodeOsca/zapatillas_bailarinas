@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/utili.css" />
+    <style>
+      .card-body{
+        position: relative;
+      }
+
+
+      .small-video{
+        cursor: pointer;
+        position: absolute;
+        top: 1%;
+        right: 1%;
+        width: 50px;
+      }
+    </style>
   </head>
   <body>
     <div class="container-menu"></div>
@@ -34,10 +48,9 @@
             <img
               class="card-img-top"
               style="height: 250px; object-fit: cover; object-position: top center;"
-              src="./img/ballet.jpeg"
-              alt="Card image cap"
-            />
+              src="./img/ballet.jpeg" alt="Card image cap" />
             <div class="card-body">
+              <img src="./img/window.jpeg" class="small-video" alt="Video" data-video="./video/ballet.mp4">
               <h5 class="card-title text-center">Ballet</h5>
               <p class="card-text">
                 Inspiradas en la delicadeza del ballet y la fuerza de quienes lo
@@ -59,6 +72,7 @@
               alt="Card image cap"
             />
             <div class="card-body">
+              <img src="./img/window.jpeg" class="small-video" alt="Video" data-video="./video/contemporanea.mp4">
               <h5 class="card-title text-center">Danza contemporánea</h5>
               <p class="card-text">
                 Cada par de zapatillas es una invitación a explorar el cuerpo
@@ -81,6 +95,7 @@
               alt="Card image cap"
             />
             <div class="card-body">
+              <img src="./img/window.jpeg" class="small-video" alt="Video" data-video="./video/urbana.mp4">
               <h5 class="card-title text-center">Danza Urbana</h5>
               <p class="card-text">
                 Inspiradas en la fuerza de la calle y el poder del movimiento,
@@ -98,32 +113,11 @@
             <img
               class="card-img-top"
               style="height: 250px; object-fit: cover"
-              src="./img/zapatillas1.png"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Salsa</h5>
-              <p class="card-text">
-                Inspiradas en la energía ardiente de la salsa, nuestras
-                zapatillas están hechas para quienes bailan con el corazón y se
-                expresan con cada giro. Diseñadas para acompañar el compás, el
-                sabor y la elegancia de cada paso. 🔥 Porque la salsa no se
-                baila… se vive.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card">
-            <img class="back_ho" src="./img/descargaknkkjuii86.png" alt="" />
-            <img
-              class="card-img-top"
-              style="height: 250px; object-fit: cover"
               src="./img/Nacionalista.jpeg"
               alt="Card image cap"
             />
             <div class="card-body">
+              <img src="./img/window.jpeg" class="small-video" alt="Video" data-video="./video/nacionalista.mp4">
               <h5 class="card-title text-center">Danza nacionalista</h5>
               <p class="card-text">
                 Cada paso honra la historia, cada giro celebra la tierra.
@@ -164,5 +158,6 @@
     <div class="container-footer"></div>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/libs.js"></script>
+    </script>
   </body>
 </html>
